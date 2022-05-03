@@ -125,22 +125,14 @@ export default {
   created() {
     this.fetchCart();
     this.fetchShipWays();
-    // this.itemPriceAccount();
   },
 
   methods: {
     fetchCart() {
       const { items, shipAmount, total } = dummyCart;
-      // const { id, name, price, quantity, image } = items;
-      // this.items = { id, name, price, quantity, image }`;
       this.items = items;
-      // this.shipAmount = shipAmount;
       this.shipAmount = shipAmount;
       this.total = total;
-      //也可以這樣寫
-      // this.items = dummyCart.items;
-      // this.shipAmount = dummyCart.shipAmount;
-      // this.total = dummyCart.total;
     },
     fetchShipWays() {
       const { shipWays } = dummyShipAmount;
@@ -166,43 +158,24 @@ export default {
         console.log(this.partNo);
       }
     },
-    // itemPriceAccount() {
-    //   console.log(this.itemPrice);
-    //   this.itemPrice = this.items.map((item) => {
-    //     return item.quantity * item.price;
-    //   });
-    // },
+
     addItemId(ItemId) {
-      // console.log(ItemId);
       const currentItem = this.items.find((item) => item.id === Number(ItemId));
-      // console.log(currentItem);
       currentItem.quantity = currentItem.quantity + 1;
     },
     minusItemId(ItemId) {
-      // console.log(ItemId);
       const currentItem = this.items.find((item) => item.id === Number(ItemId));
-      // console.log(currentItem);
       if (currentItem.quantity === 0) return;
       currentItem.quantity = currentItem.quantity - 1;
     },
     changeShipWayId(shipID) {
       this.initialShipWayId = Number(shipID);
-      // console.log(this.initialShipWayId);
       const currentShip = this.shipWays.filter(
         (shipWay) => shipWay.id === shipID
       );
       this.shipAmount = currentShip[0].shipFee;
-      // console.log(currentShip);
       console.log("currentShip", currentShip[0].shipFee);
     },
   },
-  // watch: {
-  //   items() {
-  //     console.log(this.itemPrice);
-  //     this.itemPrice = this.items.map((item) => {
-  //       return item.quantity * item.price;
-  //     });
-  //   },
-  // },
 };
 </script>

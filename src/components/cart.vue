@@ -58,11 +58,6 @@ export default {
       type: Number,
       default: 0,
     },
-
-    // initialShipFee: {
-    //   type: Number,
-    //   default: 0,
-    // },
   },
   data() {
     return {
@@ -102,7 +97,6 @@ export default {
         });
         console.log("money", itemPrice);
         this.itemPrice = itemPrice;
-        // this.initialTotal = this.initialShipAmount + this.itemPrice;
       },
       deep: true,
     },

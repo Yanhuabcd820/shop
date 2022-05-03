@@ -33,13 +33,5 @@ export default {
       HY: 0,
     };
   },
-  methods: {},
-  // computed: {
-  //   test() {
-  //     // console.log(this.partNo);
-  //     // alert(this.partNo);
-  //     HY = 5;
-  //   },
-  // },
 };
 </script>

@@ -4,24 +4,24 @@
     <div class="ship-way-wrap">
       <label
         class="ship-way d-flex justify-content-between"
-        for="ship-stander"
-        v-for="initialShipWay in initialShipWays"
-        :key="initialShipWay.id"
+        :for="shipWay.id"
+        v-for="shipWay in shipWays"
+        :key="shipWay.id"
       >
         <input
           type="radio"
           name="ship"
-          :id="initialShipWay.id"
-          :value="initialShipWay.id"
+          :id="shipWay.id"
+          :value="shipWay.id"
           v-model="ShipWayPicked"
-          :check="ShipWayPicked === initialShipWay.id"
+          :checked="shipWay.id === ShipWayPicked"
         />
         <div class="ship-content">
-          <b>{{ initialShipWay.name }}</b>
-          {{ initialShipWay.attention }}
+          <b>{{ shipWay.name }}</b>
+          {{ shipWay.attention }}
         </div>
         <b class="ship-fee">
-          {{ initialShipWay.shipFee | priceDeco }}
+          {{ shipWay.shipFee | priceDeco }}
         </b>
       </label>
     </div>
@@ -38,13 +38,11 @@ export default {
   },
   data() {
     return {
-      shipWays: [],
-      ShipWayPicked: "",
+      shipWays: this.initialShipWays,
+      ShipWayPicked: 1,
     };
   },
-  created() {},
-  methods: {},
-  computed: {},
+
   filters: {
     priceDeco(price) {
       if (price === 0) {
